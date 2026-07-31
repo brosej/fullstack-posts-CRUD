@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",                                  /* Versión moderna de JS */
+    "module": "CommonJS",                                /* Para que Node entienda los imports al compilar */
+    "rootDir": "./src",                                  /* Dónde está tu código TypeScript */
+    "outDir": "./dist",                                  /* Dónde dejará el código compilado */
+    "esModuleInterop": true,                             /* Crucial: Permite importar paquetes CommonJS como dotenv o express sin errores */
+    "forceConsistentCasingInFileNames": true,            /* Evita errores de mayúsculas/minúsculas */
+    "strict": true,                                      /* Activa validaciones estrictas (Zod y Prisma lo agradecen) */
+    "skipLibCheck": true,                                /* Acelera la compilación ignorando los tipos de node_modules */
+    "moduleResolution": "node"                           /* Le dice a TS cómo buscar los módulos */
+  },
+  "include": ["src/**/*", "prisma/**/*"]
+}

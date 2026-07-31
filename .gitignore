@@ -1,0 +1,28 @@
+# Dependencias
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Entornos y Secretos
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Build de Frontend (React)
+build/
+dist/
+
+# Docker
+.docker/
+docker-compose.override.yml
+
+# Sistema Operativo
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
