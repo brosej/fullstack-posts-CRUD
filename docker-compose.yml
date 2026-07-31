@@ -1,5 +1,4 @@
 services:
-  # Base de Datos
   db:
     image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: tcit-sqlserver
@@ -10,19 +9,15 @@ services:
       MSSQL_PID: "Express"
     ports:
       - "1433:1433"
-    volumes:
-      - sqlserver_data:/var/opt/mssql
-      - ./database:/docker-entrypoint-initdb.d
     networks:
       - tcit-network
 
-  # Backend 
   api:
     build:
       context: ./backend
       dockerfile: Dockerfile
     container_name: tcit-api
-    restart: unless-stopped
+    restart: always
     ports:
       - "3000:3000"
     environment:
@@ -33,7 +28,6 @@ services:
     networks:
       - tcit-network
 
-  # Frontend React 
   web:
     build:
       context: ./frontend
@@ -41,14 +35,11 @@ services:
     container_name: tcit-frontend
     restart: unless-stopped
     ports:
-      - "5173:5173" 
+      - "5173:5173"
     depends_on:
       - api
     networks:
       - tcit-network
-
-volumes:
-  sqlserver_data:
 
 networks:
   tcit-network:
