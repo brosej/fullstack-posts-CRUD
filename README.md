@@ -21,12 +21,12 @@
 ### Opción 1: Levantar todo con Docker Compose (Recomendado)
 
 # 1. Clonar el repositorio
-git clone <URL_DE_TU_REPO>
+git clone https://github.com/brosej/fullstack-posts-CRUD
 cd tcit-challenge
 
 # 2. Levantar la infraestructura completa
-Ejecutar desde la raiz:
 
+## Ejecutar desde la raiz:
 docker compose up --build
 
 Frontend: http://localhost:5173 (o http://localhost:80)
@@ -35,7 +35,7 @@ SQL Server: localhost:1433
 
 ### Opción 2: Ejecución Manual / Desarrollo Local
 
-Ejecutar desde la raiz:
+# Ejecutar desde la raiz:
 
 docker compose up db -d
 
@@ -46,3 +46,15 @@ npm run dev
 cd frontend
 npm install
 npm run dev
+
+### Poblado de Datos (Database Seeding)
+
+El proyecto incluye un script con 15 publicaciones iniciales de prueba
+
+- **Con Docker:** Se poblará o estará listo al inicializar los contenedores.
+- **Ejecución Manual:** Si se desea poblar la base de datos manualmente en un entorno local, ejecuta desde la carpeta `/backend`:
+
+
+npm run seed
+# o mediante npx:
+npx tsx prisma/seeder.ts
